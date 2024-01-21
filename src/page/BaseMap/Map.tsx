@@ -1,29 +1,28 @@
-import React from "react";
-import axios from "axios";
-import { BaseMap } from "../../BaseMap";
+import { BaseMap } from "../../utils/BaseMap";
+import Navbar from "../../components/Navbar";
+import { JobCard } from "../../components/jobCard";
+import { PostJob } from "../dashboard/PostJob";
+import { useDashboard } from "../../context/DashboardContext";
+import { ResumeUploader } from "../../utils/uploadResume";
 
 export function Map() {
-  const baseUrl = "https://api.crackeddevs.com/api/get-jobs";
-  const apiKey = "b178dbf6-1e50-4a8b-a6a0-263bb57905b7";
-
-  try {
-    const response = axios.get(baseUrl, {
-      headers: {
-        "Api-Key": apiKey,
-      },
-    });
-    console.log(response, "ldlel");
-  } catch (err) {
-    console.log(err, "ehn");
-  }
-
+  const { isUpload, isResumeUploader } = useDashboard();
   return (
     <div className="bg-opacity-70 bg-black w-full h-[100vh] px-[4.17vw] py-[3.52vh] flex flex-col justify-center gap-4 ">
-      hi
-      <div className="text-center">
+      <div className="flex">
+        <Navbar />
+      </div>
+
+      <div className="flex text-center gap-4 z-0">
         <BaseMap />
+        {isResumeUploader ? (
+          <ResumeUploader />
+        ) : isUpload ? (
+          <PostJob />
+        ) : (
+          <JobCard />
+        )}
       </div>
     </div>
   );
 }
-

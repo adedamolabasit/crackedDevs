@@ -2,6 +2,7 @@
   "name": "crakeddevs-frontend",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://api.crackeddevs.com",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -19,6 +20,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-leaflet": "^3.2.5",
+    "react-pdf": "^7.7.0",
     "react-router-dom": "^6.21.3",
     "react-scripts": "5.0.1",
     "tailwindcss": "^3.4.1",
